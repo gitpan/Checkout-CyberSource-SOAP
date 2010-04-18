@@ -1,6 +1,6 @@
 package Checkout::CyberSource::SOAP::Response;
 BEGIN {
-  $Checkout::CyberSource::SOAP::Response::VERSION = '0.01';
+  $Checkout::CyberSource::SOAP::Response::VERSION = '0.02';
 }
 
 use Moose;
@@ -395,7 +395,7 @@ Checkout::CyberSource::SOAP::Response
 
 =head1 VERSION
 
-version 0.01
+version 0.02
 
 =head1 SYNOPSIS
 
