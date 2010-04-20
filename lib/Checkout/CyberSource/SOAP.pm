@@ -1,6 +1,6 @@
 package Checkout::CyberSource::SOAP;
 BEGIN {
-  $Checkout::CyberSource::SOAP::VERSION = '0.02';
+  $Checkout::CyberSource::SOAP::VERSION = '0.03';
 }
 
 use Moose;
@@ -203,7 +203,7 @@ __END__
 
 =head1 VERSION
 
-version 0.02
+version 0.03
 B<Checkout::CyberSource::SOAP>
 A Modern Perl interface to CyberSource's
 SOAP API.

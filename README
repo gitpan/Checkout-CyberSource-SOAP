@@ -1,6 +1,6 @@
 NAME
 VERSION
-    version 0.02 Checkout::CyberSource::SOAP A Modern Perl interface to
+    version 0.03 Checkout::CyberSource::SOAP A Modern Perl interface to
     CyberSource's SOAP API.
 
 WHY?
