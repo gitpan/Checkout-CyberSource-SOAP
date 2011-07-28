@@ -2,40 +2,53 @@
 use strict;
 use warnings;
 
+use 5.008_001;
 
-
-use ExtUtils::MakeMaker 6.31;
+use ExtUtils::MakeMaker 6.30;
 
 
 
 my %WriteMakefileArgs = (
-                       'test' => {
-                                   'TESTS' => 't/*.t'
-                                 },
-                       'NAME' => 'Checkout::CyberSource::SOAP',
-                       'DISTNAME' => 'Checkout-CyberSource-SOAP',
-                       'CONFIGURE_REQUIRES' => {
-                                                 'ExtUtils::MakeMaker' => '6.31'
-                                               },
-                       'AUTHOR' => 'Amiri Barksdale <amiri@metalabel.com>',
-                       'BUILD_REQUIRES' => {},
-                       'ABSTRACT' => 'A Modern Perl interface to CyberSource\'s SOAP API.',
-                       'EXE_FILES' => [],
-                       'VERSION' => '0.04',
-                       'PREREQ_PM' => {
-                                        'SOAP::Lite' => '0',
-                                        'Business::CreditCard' => '0',
-                                        'namespace::autoclean' => '0',
-                                        'Crypt::SSLeay' => '0',
-                                        'Time::HiRes' => '0',
-                                        'Moose' => '0'
-                                      },
-                       'LICENSE' => 'perl'
-                     );
+  'ABSTRACT' => 'A Modern Perl interface to CyberSource\'s SOAP API.',
+  'AUTHOR' => 'Amiri Barksdale <amiri@arisdottle.net>',
+  'BUILD_REQUIRES' => {
+    'Data::Dumper' => '0',
+    'Test::Moose' => '0',
+    'Test::More' => '0'
+  },
+  'CONFIGURE_REQUIRES' => {
+    'ExtUtils::MakeMaker' => '6.30'
+  },
+  'DISTNAME' => 'Checkout-CyberSource-SOAP',
+  'EXE_FILES' => [],
+  'LICENSE' => 'perl',
+  'NAME' => 'Checkout::CyberSource::SOAP',
+  'PREREQ_PM' => {
+    'Business::CreditCard' => '0',
+    'Moose' => '0',
+    'SOAP::Lite' => '0',
+    'Time::HiRes' => '0',
+    'namespace::autoclean' => '0'
+  },
+  'VERSION' => '0.05',
+  'test' => {
+    'TESTS' => 't/*.t'
+  }
+);
 
 
-delete $WriteMakefileArgs{BUILD_REQUIRES}
-  unless eval { ExtUtils::MakeMaker->VERSION(6.56) };
+unless ( eval { ExtUtils::MakeMaker->VERSION(6.56) } ) {
+  my $br = delete $WriteMakefileArgs{BUILD_REQUIRES};
+  my $pp = $WriteMakefileArgs{PREREQ_PM};
+  for my $mod ( keys %$br ) {
+    if ( exists $pp->{$mod} ) {
+      $pp->{$mod} = $br->{$mod} if $br->{$mod} > $pp->{$mod};
+    }
+    else {
+      $pp->{$mod} = $br->{$mod};
+    }
+  }
+}
 
 delete $WriteMakefileArgs{CONFIGURE_REQUIRES}
   unless eval { ExtUtils::MakeMaker->VERSION(6.52) };

@@ -1,7 +1,4 @@
 package Checkout::CyberSource::SOAP::Response;
-BEGIN {
-  $Checkout::CyberSource::SOAP::Response::VERSION = '0.04';
-}
 
 use Moose;
 use Business::CreditCard;

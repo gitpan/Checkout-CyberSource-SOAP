@@ -1,7 +1,4 @@
 package Checkout::CyberSource::SOAP;
-BEGIN {
-  $Checkout::CyberSource::SOAP::VERSION = '0.04';
-}
 
 use Moose;
 use SOAP::Lite;
