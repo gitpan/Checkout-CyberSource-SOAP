@@ -24,4 +24,4 @@ requires:
   perl: 5.008_001
 resources:
   repository: git://github.com/amiri/Checkout--CyberSource--SOAP.git
-version: 0.05
+version: 0.06
