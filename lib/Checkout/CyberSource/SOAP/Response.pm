@@ -1,6 +1,8 @@
 package Checkout::CyberSource::SOAP::Response;
-
 use Moose;
+BEGIN {
+	our $VERSION = '0.07'; # VERSION
+}
 use Business::CreditCard;
 use namespace::autoclean;
 no warnings qw/uninitialized/;

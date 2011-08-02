@@ -1,9 +1,13 @@
 package Checkout::CyberSource::SOAP;
-
 use Moose;
+BEGIN {
+	our $VERSION = '0.07'; # VERSION
+}
 use SOAP::Lite;
 use Time::HiRes qw/gettimeofday/;
 use namespace::autoclean;
+
+use Checkout::CyberSource::SOAP::Response;
 
 use 5.008_001;
 
@@ -377,10 +381,11 @@ Amiri Barksdale E<lt>amiri@metalabel.comE<gt>
 =head1 CONTRIBUTORS
 
 Tomas Doran (t0m) E<lt>bobtfish@bobtfish.netE<gt>
+Caleb Cushing (xenoterracide) E<lt>xenoterracide@gmail.comE<gt>
 
 =head1 COPYRIGHT
 
-Copyright (c) 2010 the Checkout::CyberSource::SOAP L</AUTHOR> and
+Copyright (c) 2011 the Checkout::CyberSource::SOAP L</AUTHOR> and
 L</CONTRIBUTORS> as listed above.
 
 =head1 LICENSE

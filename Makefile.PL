@@ -13,6 +13,9 @@ my %WriteMakefileArgs = (
   'AUTHOR' => 'Amiri Barksdale <amiri@arisdottle.net>',
   'BUILD_REQUIRES' => {
     'Data::Dumper' => '0',
+    'English' => '0',
+    'File::Find' => '0',
+    'File::Temp' => '0',
     'Test::Moose' => '0',
     'Test::More' => '0'
   },
@@ -30,7 +33,7 @@ my %WriteMakefileArgs = (
     'Time::HiRes' => '0',
     'namespace::autoclean' => '0'
   },
-  'VERSION' => '0.06',
+  'VERSION' => '0.07',
   'test' => {
     'TESTS' => 't/*.t'
   }
